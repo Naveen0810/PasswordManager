@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/App.css';
+import '../styles/Form.css';
 
 function Login() {
   const [form, setForm] = useState({ email: '', password: '' });
@@ -20,7 +20,6 @@ function Login() {
   const handleSubmit = e => {
     e.preventDefault();
 
-    // Store login info in localStorage
     const loginEntry = {
       name: "Main Login",
       username: form.email,
@@ -28,35 +27,41 @@ function Login() {
     };
 
     localStorage.setItem("loginEntry", JSON.stringify(loginEntry));
-
-    // Redirect to dashboard
     window.location.href = "/dashboard";
   };
 
   return (
-    <div className="form-container">
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-          required
-        /><br />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={form.password}
-          onChange={handleChange}
-          required
-        /><br />
-        <button type="button" onClick={generatePassword}>Generate Password</button>
-        <button type="submit" style={{ marginLeft: "10px" }}>Login</button>
-      </form>
-    </div>
+    <>
+      <div className="nav">
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+        <a href="/dashboard">Dashboard</a>
+      </div>
+
+      <div className="form-container">
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            value={form.email}
+            onChange={handleChange}
+            required
+          />
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={form.password}
+            onChange={handleChange}
+            required
+          />
+          <button type="button" onClick={generatePassword}>Generate Password</button>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </>
   );
 }
 

@@ -8,6 +8,12 @@ function Dashboard() {
 
   return (
     <div className="app">
+      <div className="nav">
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+        <a href="/dashboard">Dashboard</a>
+      </div>
+      <></><></>
       <h2>Password Manager & Generator</h2>
       <PasswordGenerator onGenerate={setGeneratedPassword} />
       <PasswordManager generatedPassword={generatedPassword} />

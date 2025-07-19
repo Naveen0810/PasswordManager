@@ -13,7 +13,13 @@ function Signup() {
 
   return (
     <div className="form-container">
+      <div className="nav">
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+        <a href="/dashboard">Dashboard</a>
+      </div>
       <h2>Signup</h2>
+
       <form onSubmit={handleSubmit}>
         <input type="text" name="name" placeholder="Name" value={form.name} onChange={handleChange} required />
         <input type="email" name="email" placeholder="Email" value={form.email} onChange={handleChange} required />
